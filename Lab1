@@ -1,0 +1,204 @@
+
+C:\Users\George>d:
+
+D:\>cd test
+
+D:\test>git config --global user.name "georgehgisamov"
+
+D:\test>git config --global user.email khisamovg2@mail.ru
+
+D:\test>git init
+Initialized empty Git repository in D:/test/.git/
+
+D:\test>git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+D:\test>git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        info.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\test>git diff
+
+D:\test>git add info.txt
+
+D:\test>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   info.txt
+
+
+D:\test>git commit -m "Added the file info.txt"
+[master (root-commit) c6cab72] Added the file info.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 info.txt
+
+D:\test>git log
+commit c6cab72ca786c959b54b7f2e169271a85828e6b9 (HEAD -> master)
+Author: georgehgisamov <khisamovg2@mail.ru>
+Date:   Thu Mar 2 13:53:45 2023 +0500
+
+    Added the file info.txt
+
+D:\test>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        info2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\test>git add info2.txt
+
+D:\test>git commit -m "info2"
+[master 11ccc5e] info2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 info2.txt
+
+D:\test>git diff
+diff --git a/info2.txt b/info2.txt
+index 2b559ee..8a6e992 100644
+--- a/info2.txt
++++ b/info2.txt
+@@ -1 +1 @@
+-SampleTEXT2
++SampleTEXT2 : INFO
+
+D:\test>git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   info2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\test>git add info2.txt
+
+D:\test>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   info2.txt
+
+
+D:\test>git commit -m "info2 - new info"
+[master e0c483e] info2 - new info
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+D:\test>git log
+commit e0c483e4661c5b38cf8c39c6d7e50bf80a60db20 (HEAD -> master)
+Author: georgehgisamov <khisamovg2@mail.ru>
+Date:   Thu Mar 2 13:56:34 2023 +0500
+
+    info2 - new info
+
+commit 11ccc5e86a6c13a75fbe33a0333c9c146c3e9636
+Author: georgehgisamov <khisamovg2@mail.ru>
+Date:   Thu Mar 2 13:55:25 2023 +0500
+
+    info2
+
+commit c6cab72ca786c959b54b7f2e169271a85828e6b9
+Author: georgehgisamov <khisamovg2@mail.ru>
+Date:   Thu Mar 2 13:53:45 2023 +0500
+
+    Added the file info.txt
+
+D:\test>git branch b1
+
+D:\test>git status b1
+On branch master
+nothing to commit, working tree clean
+
+D:\test>git checkout b1
+Switched to branch 'b1'
+
+D:\test>git status
+On branch b1
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        info3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\test>git add info3.txt
+
+D:\test>git commit -m "info3"
+[b1 2fbb3a4] info3
+ 1 file changed, 1 insertion(+)
+ create mode 100644 info3.txt
+
+D:\test>git log
+commit 2fbb3a458030ebc2cd7b092a852f46a94c9f5c05 (HEAD -> b1)
+Author: georgehgisamov <khisamovg2@mail.ru>
+Date:   Thu Mar 2 13:58:23 2023 +0500
+
+    info3
+
+commit e0c483e4661c5b38cf8c39c6d7e50bf80a60db20 (master)
+Author: georgehgisamov <khisamovg2@mail.ru>
+Date:   Thu Mar 2 13:56:34 2023 +0500
+
+    info2 - new info
+
+commit 11ccc5e86a6c13a75fbe33a0333c9c146c3e9636
+Author: georgehgisamov <khisamovg2@mail.ru>
+Date:   Thu Mar 2 13:55:25 2023 +0500
+
+    info2
+
+commit c6cab72ca786c959b54b7f2e169271a85828e6b9
+Author: georgehgisamov <khisamovg2@mail.ru>
+Date:   Thu Mar 2 13:53:45 2023 +0500
+
+    Added the file info.txt
+
+D:\test>git checkout master
+Switched to branch 'master'
+
+D:\test>git merge b1
+Updating e0c483e..2fbb3a4
+Fast-forward
+ info3.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 info3.txt
+
+D:\test>git log
+commit 2fbb3a458030ebc2cd7b092a852f46a94c9f5c05 (HEAD -> master, b1)
+Author: georgehgisamov <khisamovg2@mail.ru>
+Date:   Thu Mar 2 13:58:23 2023 +0500
+
+    info3
+
+commit e0c483e4661c5b38cf8c39c6d7e50bf80a60db20
+Author: georgehgisamov <khisamovg2@mail.ru>
+Date:   Thu Mar 2 13:56:34 2023 +0500
+
+    info2 - new info
+
+commit 11ccc5e86a6c13a75fbe33a0333c9c146c3e9636
+Author: georgehgisamov <khisamovg2@mail.ru>
+Date:   Thu Mar 2 13:55:25 2023 +0500
+
+    info2
+
+commit c6cab72ca786c959b54b7f2e169271a85828e6b9
+Author: georgehgisamov <khisamovg2@mail.ru>
+Date:   Thu Mar 2 13:53:45 2023 +0500
+
+    Added the file info.txt
